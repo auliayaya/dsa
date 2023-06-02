@@ -8,95 +8,95 @@ import (
 const size = 100_000_000
 
 func RunSlice() {
-	nameStack := Stack[string]{}
-	nameStack.Push("Katy")
-	nameStack.Push("Perry")
-	nameStack.Push("Harry")
-	topStock := nameStack.Top()
+	nameStackSlice := StackSlice[string]{}
+	nameStackSlice.Push("Katy")
+	nameStackSlice.Push("Perry")
+	nameStackSlice.Push("Harry")
+	topStock := nameStackSlice.Top()
 	if topStock != getZero[string]() {
 		fmt.Printf("\n Top of stack is %s", topStock)
 	}
-	poppedFromStack := nameStack.Pop()
-	if poppedFromStack != getZero[string]() {
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	poppedFromStackSlice := nameStackSlice.Pop()
+	if poppedFromStackSlice != getZero[string]() {
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackSlice)
 	}
-	poppedFromStack = nameStack.Pop()
-	if poppedFromStack != getZero[string]() {
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	poppedFromStackSlice = nameStackSlice.Pop()
+	if poppedFromStackSlice != getZero[string]() {
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackSlice)
 	}
-	poppedFromStack = nameStack.Pop()
-	if poppedFromStack != getZero[string]() {
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	poppedFromStackSlice = nameStackSlice.Pop()
+	if poppedFromStackSlice != getZero[string]() {
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackSlice)
 	}
 
-	intStack := Stack[int]{}
-	intStack.Push(5)
-	intStack.Push(10)
-	intStack.Push(0)
-	top := intStack.Top()
+	intStackSlice := StackSlice[int]{}
+	intStackSlice.Push(5)
+	intStackSlice.Push(10)
+	intStackSlice.Push(0)
+	top := intStackSlice.Top()
 	if top != getZero[int]() {
-		fmt.Printf("\nValue on top of instStack is %d", top)
+		fmt.Printf("\nValue on top of instStackSlice is %d", top)
 	}
-	popFromStack := intStack.Pop()
-	if popFromStack != getZero[int]() {
-		fmt.Printf("\nValue popped form intStack is %d", popFromStack)
+	popFromStackSlice := intStackSlice.Pop()
+	if popFromStackSlice != getZero[int]() {
+		fmt.Printf("\nValue popped form intStackSlice is %d", popFromStackSlice)
 	}
-	popFromStack = intStack.Pop()
-	if popFromStack != getZero[int]() {
-		fmt.Printf("\nValue popped form intStack is %d", popFromStack)
+	popFromStackSlice = intStackSlice.Pop()
+	if popFromStackSlice != getZero[int]() {
+		fmt.Printf("\nValue popped form intStackSlice is %d", popFromStackSlice)
 	}
-	popFromStack = intStack.Pop()
-	if popFromStack != getZero[int]() {
-		fmt.Printf("\nValue popped form intStack is %d", popFromStack)
+	popFromStackSlice = intStackSlice.Pop()
+	if popFromStackSlice != getZero[int]() {
+		fmt.Printf("\nValue popped form intStack is %d", popFromStackSlice)
 	}
 }
 
 func RunStackNode() {
-	nameStack := Stack[string]{}
-	nameStack.Push("Lerry")
-	nameStack.Push("Page")
-	nameStack.Push("Steve")
-	if !nameStack.IsEmpty() {
-		topOfStack := nameStack.Top()
-		fmt.Printf("\nTop of stack is %s", topOfStack)
+	nameStackNode := StackNode[string]{}
+	nameStackNode.Push("Lerry")
+	nameStackNode.Push("Page")
+	nameStackNode.Push("Steve")
+	if !nameStackNode.IsEmpty() {
+		topOfStackNode := nameStackNode.Top()
+		fmt.Printf("\nTop of stack is %s", topOfStackNode)
 	}
-	if !nameStack.IsEmpty() {
-		poppedFromStack := nameStack.Pop()
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	if !nameStackNode.IsEmpty() {
+		poppedFromStackNode := nameStackNode.Pop()
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackNode)
 	}
-	if !nameStack.IsEmpty() {
-		poppedFromStack := nameStack.Pop()
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	if !nameStackNode.IsEmpty() {
+		poppedFromStackNode := nameStackNode.Pop()
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackNode)
 	}
-	if !nameStack.IsEmpty() {
-		poppedFromStack := nameStack.Pop()
-		fmt.Printf("\nValue popped from stack is %s", poppedFromStack)
+	if !nameStackNode.IsEmpty() {
+		poppedFromStackNode := nameStackNode.Pop()
+		fmt.Printf("\nValue popped from stack is %s", poppedFromStackNode)
 	}
-	nameStackInt := Stack[int]{}
-	nameStackInt.Push(20)
-	nameStackInt.Push(10)
-	nameStackInt.Push(20)
-	if !nameStackInt.IsEmpty() {
-		topOfStack := nameStackInt.Top()
-		fmt.Printf("\nTop of stack is %d", topOfStack)
+	nameStackNodeInt := StackNode[int]{}
+	nameStackNodeInt.Push(20)
+	nameStackNodeInt.Push(10)
+	nameStackNodeInt.Push(20)
+	if !nameStackNodeInt.IsEmpty() {
+		topOfStackNode := nameStackNodeInt.Top()
+		fmt.Printf("\nTop of stack is %d", topOfStackNode)
 	}
-	if !nameStackInt.IsEmpty() {
-		poppedFromStack := nameStackInt.Pop()
-		fmt.Printf("\nValue popped from stack is %d", poppedFromStack)
+	if !nameStackNodeInt.IsEmpty() {
+		poppedFromStackNode := nameStackNodeInt.Pop()
+		fmt.Printf("\nValue popped from stack is %d", poppedFromStackNode)
 	}
-	if !nameStackInt.IsEmpty() {
-		poppedFromStack := nameStackInt.Pop()
-		fmt.Printf("\nValue popped from stack is %d", poppedFromStack)
+	if !nameStackNodeInt.IsEmpty() {
+		poppedFromStackNode := nameStackNodeInt.Pop()
+		fmt.Printf("\nValue popped from stack is %d", poppedFromStackNode)
 	}
-	if !nameStackInt.IsEmpty() {
-		poppedFromStack := nameStackInt.Pop()
-		fmt.Printf("\nValue popped from stack is %d", poppedFromStack)
+	if !nameStackNodeInt.IsEmpty() {
+		poppedFromStackNode := nameStackNodeInt.Pop()
+		fmt.Printf("\nValue popped from stack is %d", poppedFromStackNode)
 	}
 }
 
 func SpeedCompare() {
 	nodeStack := StackNode[int]{}
-	sliceStack := Stack[int]{}
+	sliceStack := StackSlice[int]{}
 
 	start := time.Now()
 	for i := 0; i < size; i++ {
