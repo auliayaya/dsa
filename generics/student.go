@@ -2,6 +2,7 @@ package generics
 
 import "fmt"
 
+// Stringer constrained generics
 type Stringer interface {
 	String() string
 }
@@ -28,5 +29,10 @@ func (s Student) String() string {
 	return fmt.Sprintf("%s %d %0.2f", s.Name, s.ID, s.Age)
 }
 func addStudent[T Stringer](students []T, student T) []T {
+	return append(students, student)
+}
+
+// unconstried generics
+func addStudent2[T any](students []T, student T) []T {
 	return append(students, student)
 }
