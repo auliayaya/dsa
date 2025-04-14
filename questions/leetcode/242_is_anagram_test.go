@@ -7,27 +7,24 @@ import (
 )
 
 func isAnagram(s string, t string) bool {
-	if s == "" || t == "" {
+	str := strings.ToLower(s)
+	str2 := strings.ToLower(t)
+	charCount := make(map[rune]int)
+	if len(str2) != len(str) {
 		return false
 	}
-	if s == t {
-		return true
+	for _, v := range str {
+		charCount[v]++
 	}
-	var str, str2 []string
-	for _, v := range s {
-		str = append(str, string(v))
+	for _, v := range str2 {
+		charCount[v]--
+		if charCount[v] < 0 {
+			return false
+		}
 	}
-	for _, v := range t {
-		str = append(str2, string(v))
-	}
-
-	if strings.Join(str, "") == strings.Join(str2, "") {
-		return true
-	}
-	return false
+	return true
 }
 func Test_IsAnagram(t *testing.T) {
-
 	v := []struct {
 		data   []string
 		result bool
@@ -42,31 +39,27 @@ func Test_IsAnagram(t *testing.T) {
 		},
 		{
 			data:   []string{"rat", "car"},
-			result: true,
+			result: false,
 		},
 		{
 			data:   []string{"Cheater", "teacher"},
 			result: true,
 		},
 		{
-			data: []string{"God","dog"},
+			data:   []string{"God", "dog"},
 			result: true,
 		},
 		{
-			data : []string{"Planter", "replant"},
+			data:   []string{"Planter", "replant"},
+			result: true,
 		},
-		Cheater = teacher.
-		God = dog.
-		Planter = replant.
-		Lampshade = headlamps.
-		Bust = stub.
-		Roots = torso.
-		Rail = lair.
-		Donate = atoned.
+		{
+			data:   []string{"ayas", "udin"},
+			result: false,
+		},
 	}
 	for _, test := range v {
 		rt := isAnagram(test.data[0], test.data[1])
 		assert.Equal(t, rt, test.result)
-
 	}
 }

@@ -2,7 +2,6 @@ package leetcode
 
 import (
 	"github.com/stretchr/testify/assert"
-	"sort"
 	"testing"
 )
 
@@ -11,17 +10,17 @@ func topKFrequent(nums []int, k int) []int {
 	for _, v := range nums {
 		freqMap[v]++
 	}
-	uniqueNums := make([]int, 0, len(freqMap))
-	for num := range freqMap {
-		uniqueNums = append(uniqueNums, num)
+	uniqueNums := make([][]int, len(nums)+1)
+	for num, freq := range freqMap {
+		uniqueNums[freq] = append(uniqueNums[freq], num)
 	}
-	sort.Slice(uniqueNums, func(i, j int) bool {
-		return uniqueNums[i] < uniqueNums[j]
-	})
-	if k > len(uniqueNums) {
-		k = len(uniqueNums)
+	var res []int
+	for i := len(nums); i >= 0 && len(res) < k; i-- {
+		if len(uniqueNums[i]) > 0 {
+			res = append(res, uniqueNums[i]...)
+		}
 	}
-	return uniqueNums[:k]
+	return res[:k]
 }
 
 func TestTopKFrequent(t *testing.T) {
@@ -34,6 +33,11 @@ func TestTopKFrequent(t *testing.T) {
 			input:  []int{1, 1, 1, 2, 2, 3},
 			k:      2,
 			result: []int{1, 2},
+		},
+		{
+			input:  []int{1, 1, 1, 2, 2, 3, 4, 4, 4},
+			k:      3,
+			result: []int{1, 4, 2},
 		},
 		{
 			input:  []int{1},
